@@ -541,7 +541,3 @@ Aumenta la seguridad mediante un **sistema de control de acceso utilizando contr
 | 🚀 Presentación final | ⏳ Pendiente |
 
 ---
-
-> ⭐ **Proyecto de innovación tecnológica escolar**
->
-> 🤖 *Crear. Programar. Automatizar. Solucionar.*
