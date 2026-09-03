@@ -1,116 +1,394 @@
-# Propuestas de proyectos (5)
+# 🤖  Propuestas de Proyectos Arduino
+💡 5 ideas de proyectos tecnológicos para solucionar problemas reales dentro del establecimiento educacional.
 
-*PROPUESTA N°1*
-*Nombre del proyecto:* AhorroLuz - Sistema Inteligente de Ahorro de Energía en Salas
+Este repositorio presenta 5 proyectos basados en Arduino, utilizando sensores, actuadores y programación para crear soluciones prácticas, económicas e innovadoras.
 
-*Problema o necesidad:* Las luces y ventiladores quedan prendidos en salas vacías, generando gasto de luz.
+📑 Índice
+💡 Propuesta 1 — AhorroLuz
+🔊 Propuesta 2 — SilencioMeter
+🌱 Propuesta 3 — EcoRiego
+🗑️ Propuesta 4 — FullBin
+🔐 Propuesta 5 — SafeLab
+📊 Comparación general
+🏆 Conclusión
+💡 Propuesta N.º 1 — AhorroLuz
+🔋 Sistema Inteligente de Ahorro de Energía en Salas
+🎯 Problema o necesidad
+Las luces y ventiladores pueden quedar encendidos en salas vacías, generando un gasto innecesario de energía eléctrica.
 
-*Aplicación:* En cada sala de clases, laboratorio o baño.
+🏫 Aplicación
+El sistema puede utilizarse en:
 
-*Funcionamiento:* Un sensor detecta si hay personas. Si no hay nadie por 2 minutos, apaga automáticamente luces y ventilador. Si alguien entra, los vuelve a prender.
+🏫 Salas de clases
+🔬 Laboratorios
+🚻 Baños
+🏢 Otras dependencias del establecimiento
+⚙️ Funcionamiento
+Un sensor de movimiento detecta si hay personas dentro de la sala.
 
-*Arduino:* Arduino UNO
+Si no se detecta movimiento durante 2 minutos (120 segundos), el sistema:
 
-*Sensores:* Sensor de movimiento PIR HC-SR501, Sensor de luz LDR
+🔔 Hace sonar el buzzer para avisar antes de apagar.
+💡 Apaga automáticamente las luces.
+🌀 Apaga el ventilador mediante el relé.
+Si alguien vuelve a entrar y el sensor detecta movimiento, el sistema vuelve a activar las luces y el ventilador.
 
-*Actuadores:* Relé de 2 canales, Buzzer (avisa antes de apagar)
+🖥️ Arduino
+Arduino UNO
 
-*Otros componentes:* LEDs indicadores, Resistencias 10k, Protoboard, Cables jumper
+📡 Sensores
+Sensor de movimiento PIR HC-SR501
+Sensor de luz LDR
+⚡ Actuadores
+Relé de 2 canales
+Buzzer para avisar antes del apagado
+🔧 Otros componentes
+LEDs indicadores
+Resistencias de 10 kΩ
+Protoboard
+Cables jumper
+🛠️ Materiales
+Caja plástica impresa o de madera
+Tornillos
+Cinta aislante
+💻 Programación
+El programa debe leer constantemente el sensor PIR.
 
-*Materiales:* Caja plástica impresa o de madera, tornillos, cinta aislante
+SI se detecta movimiento:
+    → Activar el relé.
+    → Mantener las luces y ventilador encendidos.
+    → Reiniciar el temporizador.
 
-*Programación:* El programa debe leer el PIR. Si detecta movimiento, activa el relé. Si no detecta por 120 segundos y el LDR indica que hay luz natural, suena el buzzer y corta la corriente.
+SI NO se detecta movimiento durante 120 segundos:
+    → Comprobar el sensor LDR.
+    → Si corresponde, hacer sonar el buzzer.
+    → Cortar la corriente mediante el relé.
 
-*Viabilidad:* Sí, muy viable. Componentes baratos y fáciles de conseguir.
+SI vuelve a detectarse movimiento:
+    → Reactivar las luces y el ventilador.
 
-*PROPUESTA N°2*
-*Nombre del proyecto:* SilencioMeter - Semáforo del Ruido
+✅ Viabilidad
+🟢 Sí, muy viable. Los componentes son baratos y fáciles de conseguir.
 
-*Problema o necesidad:* Mucho ruido en la sala que interrumpe las clases.
+🔊 Propuesta N.º 2 — SilencioMeter
+🚦 Semáforo del Ruido
+🎯 Problema o necesidad
+Existe demasiado ruido dentro de las salas, lo que puede interrumpir las clases y dificultar la concentración de los estudiantes.
 
-*Aplicación:* Dentro de la sala de clases, biblioteca o sala de UTP.
+🏫 Aplicación
+Puede utilizarse en:
 
-*Funcionamiento:* Mide el nivel de ruido. Si es bajo, prende luz verde. Si es medio, amarilla. Si es muy alto, roja y suena una alarma.
+🏫 Salas de clases
+📚 Bibliotecas
+🧑‍💼 Salas de UTP
+🤫 Espacios donde se requiera mantener un nivel de ruido controlado
+⚙️ Funcionamiento
+El sistema mide el nivel de ruido del ambiente y lo representa mediante un semáforo luminoso.
 
-*Arduino:* Arduino NANO
+Nivel de ruido	Indicador	Acción
+🟢 Bajo	LED verde	Ambiente adecuado
+🟡 Medio	LED amarillo	Nivel de precaución
+🔴 Alto	LED rojo	Activa alarma
 
-*Sensores:* Sensor de sonido KY-038 / Módulo micrófono MAX4466
+Cuando el nivel de ruido es demasiado alto, se enciende la luz roja y se activa el buzzer.
 
-*Actuadores:* LED RGB o 3 LEDs (verde, amarillo, rojo), Buzzer activo
+🖥️ Arduino
+Arduino NANO
 
-*Otros componentes:* Pantalla LCD 16x2 con I2C, Potenciómetro, Resistencias 220 ohm, Botón pulsador para resetear
+📡 Sensores
+Sensor de sonido KY-038
+Módulo micrófono MAX4466
+💡 Actuadores
+LED RGB o 3 LEDs:
+🟢 Verde
+🟡 Amarillo
+🔴 Rojo
+Buzzer activo
+🔧 Otros componentes
+Pantalla LCD 16x2 con I2C
+Potenciómetro
+Resistencias de 220 Ω
+Botón pulsador para resetear
+🛠️ Materiales
+Base de MDF o cartón
+Caja para construir el semáforo
+💻 Programación
+El programa debe:
 
-*Materiales:* Base de MDF o cartón, caja para el semáforo
+1. Leer el valor entregado por el sensor de sonido.
 
-*Programación:* Leer el valor del sensor de sonido. Convertirlo a decibeles. Mostrar el nivel en la LCD. Según rangos, prender el LED correspondiente y activar el buzzer si supera el límite.
+2. Procesar el valor obtenido.
 
-*Viabilidad:* Sí, 100% viable y muy útil para los profes.
+3. Convertir/calibrar el valor para obtener una estimación
+   del nivel de ruido en decibeles.
 
-*PROPUESTA N°3*
-*Nombre del proyecto:* EcoRiego - Riego Automático del Huerto Escolar
+4. Mostrar el nivel de ruido en la pantalla LCD.
 
-*Problema o necesidad:* El huerto del liceo se seca porque se olvidan de regarlo o se riega de más.
+5. Comparar el valor con los rangos establecidos.
 
-*Aplicación:* Huerto escolar, invernadero o jardines del patio.
+6. Encender el LED correspondiente:
+      → Verde = ruido bajo
+      → Amarillo = ruido medio
+      → Rojo = ruido alto
 
-*Sensores:* Sensor de humedad de suelo FC-28, Sensor de temperatura y humedad DHT11
+7. Si se supera el límite:
+      → Activar el buzzer.
 
-*Actuadores:* Mini bomba de agua 5V o electroválvula, Servo motor SG90 (abre compuerta)
+✅ Viabilidad
+🟢 Sí, 100% viable y muy útil para los profesores.
 
-*Otros componentes:* Pantalla OLED 0.96", Relé 1 canal, LEDs, Resistencias
+🌱 Propuesta N.º 3 — EcoRiego
+💧 Riego Automático del Huerto Escolar
+🎯 Problema o necesidad
+El huerto del liceo puede secarse porque se olvida regarlo, o puede recibir demasiada agua debido a un riego excesivo.
 
-*Materiales:* Macetero, manguera, botella de 5 litros como estanque, tierra
+🏫 Aplicación
+Puede utilizarse en:
 
-*Funcionamiento:* Si la tierra está seca, activa la bomba y riega por 5 segundos. Muestra en la pantalla la humedad y temperatura.
+🌱 Huertos escolares
+🌿 Invernaderos
+🌳 Jardines del patio
+🪴 Maceteros
+⚙️ Funcionamiento
+El sistema mide la humedad de la tierra.
 
-*Arduino:* Arduino UNO
+Cuando la tierra está demasiado seca, el sistema activa automáticamente una bomba de agua y realiza un riego durante 5 segundos.
 
-*Programación:* Si humedad de suelo < 40%, activar relé de la bomba. Mostrar datos en OLED. Esperar 1 hora antes de volver a medir.
+Además, muestra información sobre la humedad y temperatura en una pantalla OLED.
 
-*Viabilidad:* Sí, viable. Ideal si tienen huerto.
+🖥️ Arduino
+Arduino UNO
 
-*PROPUESTA N°4*
-*Nombre del proyecto:* FullBin - Basurero Inteligente con Alerta de Llenado
+📡 Sensores
+Sensor de humedad de suelo FC-28
+Sensor de temperatura y humedad DHT11
+💧 Actuadores
+Mini bomba de agua 5V o electroválvula
+Servo motor SG90 para abrir una compuerta
+🔧 Otros componentes
+Pantalla OLED 0.96"
+Relé de 1 canal
+LEDs
+Resistencias
+🛠️ Materiales
+Macetero
+Manguera
+Botella de 5 litros como estanque
+Tierra
+💻 Programación
+La lógica principal será:
 
-*Problema o necesidad:* Los basureros del patio se rebalsan y nadie avisa hasta que ya está sucio.
+1. Leer la humedad del suelo.
 
-*Aplicación:* Patio, casino o pasillos.
+2. Mostrar en la pantalla OLED:
+      → Humedad del suelo
+      → Temperatura
+      → Humedad ambiental
 
-*Funcionamiento:* Detecta qué tan lleno está el basurero. Cuando está al 90%, prende una luz roja y envía alerta sonora.
+3. Si la humedad del suelo < 40%:
+      → Activar el relé.
+      → Encender la bomba.
+      → Regar durante 5 segundos.
+      → Apagar la bomba.
 
-*Arduino:* Arduino UNO
+4. Esperar 1 hora.
 
-*Sensores:* Sensor ultrasónico HC-SR04, Sensor de movimiento PIR (para abrir tapa)
+5. Volver a medir la humedad.
 
-*Actuadores:* Servo motor MG995 (para abrir la tapa), Buzzer, Tira LED roja
+✅ Viabilidad
+🟢 Sí, viable. Es un proyecto ideal si el establecimiento cuenta con un huerto.
 
-*Otros componentes:* Botón, Resistencias, Cables
+🗑️ Propuesta N.º 4 — FullBin
+🚨 Basurero Inteligente con Alerta de Llenado
+🎯 Problema o necesidad
+Los basureros del patio pueden rebalsarse sin que nadie avise, provocando suciedad y malos olores.
 
-*Materiales:* Basurero plástico grande, estructura de madera para soporte del sensor
+🏫 Aplicación
+Puede utilizarse en:
 
-*Programación:* El HC-SR04 mide la distancia al fondo. Si la distancia es pequeña = lleno. Si está lleno, prende LED rojo y buzzer. Si el PIR detecta mano, el servo abre la tapa.
+🏫 Patios
+🍽️ Casinos
+🚶 Pasillos
+🗑️ Espacios comunes del establecimiento
+⚙️ Funcionamiento
+El sistema detecta qué tan lleno está el basurero utilizando un sensor ultrasónico.
 
-*Viabilidad:* Sí, viable y muy innovador.
+Cuando el basurero alcanza aproximadamente el 90% de su capacidad:
 
-*PROPUESTA N°5*
-*Nombre del proyecto:* SafeLab - Control de Acceso al Laboratorio
+🔴 Enciende una luz roja.
+🔊 Activa una alerta sonora.
+Además, el sensor PIR permite detectar cuando una persona acerca la mano al basurero.
 
-*Problema o necesidad:* Entran estudiantes sin permiso al laboratorio de ciencias o a bodega y se pueden perder materiales.
+Cuando detecta movimiento, el servo motor abre automáticamente la tapa.
 
-*Aplicación:* Puerta del laboratorio, sala de computación o bodega.
+🖥️ Arduino
+Arduino UNO
 
-*Funcionamiento:* Solo permite el acceso si se ingresa una clave correcta en un teclado o se detecta la tarjeta.
+📡 Sensores
+Sensor ultrasónico HC-SR04
+Sensor de movimiento PIR para detectar la mano
+⚙️ Actuadores
+Servo motor MG995 para abrir la tapa
+Buzzer
+Tira LED roja
+🔧 Otros componentes
+Botón
+Resistencias
+Cables
+🛠️ Materiales
+Basurero plástico grande
+Estructura de madera para soportar el sensor
+💻 Programación
+El HC-SR04 mide la distancia entre el sensor y la basura.
 
-*Arduino:* Arduino MEGA (tiene más pines)
+1. Medir la distancia dentro del basurero.
 
-*Sensores:* Teclado matricial 4x4, Lector RFID RC522
+2. Calcular el porcentaje aproximado de llenado.
 
-*Actuadores:* Cerradura solenoide o Servo motor para el pestillo, LED verde y rojo, Buzzer
+3. Si el basurero alcanza el 90%:
+      → Encender LED rojo.
+      → Activar el buzzer.
 
-*Otros componentes:* Pantalla LCD 16x2 I2C, Resistencias, Protoboard
+4. Si el sensor PIR detecta una mano:
+      → Activar el servo.
+      → Abrir la tapa.
 
-*Materiales:* Caja para el circuito, puerta de maqueta para la prueba
+5. Después de unos segundos:
+      → Cerrar nuevamente la tapa.
 
-*Programación:* El programa pide clave. Si la clave es correcta o la tarjeta RFID está autorizada, activa el servo para abrir por 5 segundos y prende LED verde. Si es incorrecta, LED rojo y buzzer 3 veces.
+✅ Viabilidad
+🟢 Sí, viable y muy innovadora.
 
-*Viabilidad:* Sí, requiere comprar el kit RFID que es barato.
+🔐 Propuesta N.º 5 — SafeLab
+🛡️ Control de Acceso al Laboratorio
+🎯 Problema o necesidad
+El ingreso de estudiantes o personas sin autorización al laboratorio de ciencias o a una bodega puede provocar pérdida o daño de materiales.
+
+🏫 Aplicación
+Puede utilizarse en:
+
+🔬 Laboratorio de ciencias
+💻 Sala de computación
+📦 Bodegas
+🚪 Espacios con acceso restringido
+⚙️ Funcionamiento
+El sistema permite el acceso únicamente si:
+
+🔢 Se ingresa una clave correcta mediante un teclado, o
+💳 Se detecta una tarjeta RFID autorizada.
+Si la clave o tarjeta es correcta, se activa el mecanismo de apertura durante 5 segundos.
+
+Si los datos son incorrectos, se activa una alerta.
+
+🖥️ Arduino
+Arduino MEGA
+
+El Arduino MEGA se utiliza debido a que dispone de una mayor cantidad de pines, lo que facilita conectar todos los componentes del proyecto.
+
+📡 Sensores / Entradas
+Teclado matricial 4x4
+Lector RFID RC522
+🔒 Actuadores
+Cerradura solenoide o servo motor para el pestillo
+LED verde
+LED rojo
+Buzzer
+🔧 Otros componentes
+Pantalla LCD 16x2 con I2C
+Resistencias
+Protoboard
+🛠️ Materiales
+Caja para el circuito
+Puerta de maqueta para realizar las pruebas
+💻 Programación
+El sistema solicitará una clave o leerá una tarjeta RFID.
+
+1. Solicitar clave o leer tarjeta RFID.
+
+2. Comprobar si la clave/tarjeta está autorizada.
+
+SI es correcta:
+      → Encender LED verde.
+      → Activar el servo/cerradura.
+      → Abrir durante 5 segundos.
+      → Cerrar nuevamente.
+
+SI es incorrecta:
+      → Encender LED rojo.
+      → Activar el buzzer 3 veces.
+      → Mantener la puerta cerrada.
+
+✅ Viabilidad
+🟢 Sí, viable. Requiere comprar un kit RFID, pero es económico y fácil de integrar al proyecto.
+
+📊 Comparación general
+A continuación se comparan las cinco propuestas considerando su área de aplicación, placa Arduino, dificultad, utilidad y principales componentes.
+
+#	Proyecto	Área	Arduino	Dificultad	Utilidad
+1	💡 AhorroLuz	⚡ Ahorro energético	UNO	🟢 Fácil	⭐⭐⭐⭐⭐
+2	🔊 SilencioMeter	🤫 Control de ruido	NANO	🟢 Fácil	⭐⭐⭐⭐⭐
+3	🌱 EcoRiego	🌎 Medioambiente	UNO	🟡 Media	⭐⭐⭐⭐⭐
+4	🗑️ FullBin	♻️ Limpieza	UNO	🟡 Media	⭐⭐⭐⭐
+5	🔐 SafeLab	🛡️ Seguridad	MEGA	🟠 Media/Alta	⭐⭐⭐⭐⭐
+
+🧩 Comparación de componentes
+Proyecto	Sensor principal	Actuador principal	Pantalla
+💡 AhorroLuz	PIR HC-SR501 + LDR	Relé 2 canales	❌
+🔊 SilencioMeter	KY-038 / MAX4466	LEDs + Buzzer	LCD 16x2
+🌱 EcoRiego	FC-28 + DHT11	Bomba / electroválvula	OLED 0.96"
+🗑️ FullBin	HC-SR04 + PIR	Servo MG995	❌
+🔐 SafeLab	RFID RC522 + teclado 4x4	Servo / solenoide	LCD 16x2
+
+🎯 Problema que resuelve cada propuesta
+Proyecto	Problema	Solución
+💡 AhorroLuz	Luces y ventiladores encendidos innecesariamente	Apagado automático mediante sensores
+🔊 SilencioMeter	Exceso de ruido en las salas	Semáforo visual y alarma sonora
+🌱 EcoRiego	Falta o exceso de riego	Riego automático según humedad
+🗑️ FullBin	Basureros rebalsados	Alerta automática de llenado
+🔐 SafeLab	Acceso no autorizado	Control mediante clave y RFID
+
+💰 Viabilidad general
+Proyecto	Costo estimado	Disponibilidad de componentes	Viabilidad
+💡 AhorroLuz	💲 Bajo	🟢 Fácil	⭐⭐⭐⭐⭐
+🔊 SilencioMeter	💲 Bajo	🟢 Fácil	⭐⭐⭐⭐⭐
+🌱 EcoRiego	💲 Bajo/Medio	🟢 Fácil	⭐⭐⭐⭐⭐
+🗑️ FullBin	💲 Medio	🟢 Fácil	⭐⭐⭐⭐
+🔐 SafeLab	💲 Medio	🟡 Requiere kit RFID	⭐⭐⭐⭐⭐
+
+💡 Los costos pueden variar dependiendo de dónde se compren los componentes y de si algunos materiales ya están disponibles.
+
+🏆 Conclusión
+Las cinco propuestas buscan aplicar Arduino, sensores, actuadores y programación para solucionar problemas reales dentro del establecimiento educacional.
+
+💡 AhorroLuz
+Busca reducir el consumo innecesario de energía, apagando luces y ventiladores cuando no hay personas.
+
+🔊 SilencioMeter
+Busca mejorar el ambiente de aprendizaje mediante un semáforo que indica visualmente el nivel de ruido.
+
+🌱 EcoRiego
+Permite automatizar el riego de un huerto escolar, evitando que las plantas se sequen o reciban demasiada agua.
+
+🗑️ FullBin
+Busca mejorar la limpieza mediante un basurero capaz de detectar su nivel de llenado y abrirse automáticamente.
+
+🔐 SafeLab
+Aumenta la seguridad mediante un sistema de control de acceso utilizando contraseña y tecnología RFID.
+
+🚀 Objetivo final
+Convertir problemas cotidianos del establecimiento en soluciones tecnológicas mediante programación, electrónica y automatización.
+
+🛠️ Tecnologías
+
+
+Arduino · C++ · Electrónica · Sensores · Actuadores · Automatización · Prototipado
+
+📌 Estado del proyecto
+Estado	Descripción
+📝 Propuestas	Completadas
+🔧 Selección del proyecto	⏳ Pendiente
+🧩 Diseño del prototipo	⏳ Pendiente
+💻 Programación	⏳ Pendiente
+🔌 Montaje electrónico	⏳ Pendiente
+🧪 Pruebas	⏳ Pendiente
+🚀 Presentación final	⏳ Pendiente
